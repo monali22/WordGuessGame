@@ -6,21 +6,28 @@
     border-style: solid;
     border: 2%;
     border-color: red;
-    /* text-align: center */
+    text-align: center;
     font-family: cursive
 }
 
-#content {
-   padding-left: 10%;
-   float: left;
-   margin-right: 2%;
+#content {  
    
 }
 
 #images {
-    float: left;
+    
     height: 400px;
     width: 200px;
-    background-color: red;
-    
+    display: none;
+    margin-left: 40%;
+}
+
+body {
+  background-image: url('/assets/images/background.jpeg');
+  background-color: #cccccc;
+  height: 500px;
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  /* position: relative; */
 }

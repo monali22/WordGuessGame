@@ -10,7 +10,11 @@ var wordGuessGame  = {
     introvert       :{meaning :"one who turns towards himself"},
     gerontocracy    :{meaning :"government ruled by old people"},
     ambiguous       :{meaning :"doubtful; uncertain"},
-    braggart        :{meaning :"boastful"}
+    braggart        :{meaning :"boastful"},
+    abate           :{meaning :"to diminish in intensity"},
+    aberrant        :{meaning:"diverging from the standard type"},
+    abjure          :{meaning:"to reject or renounce"},
+    abscond         :{meaning:"to leave secretly, evading detection"}
     },
 
     wordInPlay:null,
@@ -39,7 +43,7 @@ var wordGuessGame  = {
         this.rebuildWordView();
 
         this.processUpdateTotalGuesses();
-
+        
         
 
     },
@@ -85,9 +89,13 @@ var wordGuessGame  = {
     updateGuesses: function(letter) {
         if(this.guessedLetters.indexOf(letter) === -1 && this.lettertsOfTheWord.indexOf(letter) === -1) {
             this.guessedLetters.push(letter);
-            this.guessesLeft--;
+            this.guessesLeft = this.guessesLeft -1;
             document.getElementById("guessLeft").textContent = this.guessesLeft;
             document.getElementById("gLetters").textContent = this.guessedLetters.join(",");
+        }
+        else{
+            this.guessesLeft = this.guessesLeft -1;
+            document.getElementById("guessLeft").textContent = this.guessesLeft;
         }
     },
 
@@ -134,18 +142,25 @@ var wordGuessGame  = {
             this.wins = this.wins+1;
             console.log(this.wins);
             document.getElementById("wins").textContent = this.wins;
+            var num = Math.floor(Math.random()*5)+1;
+            document.getElementById("imag").setAttribute("src","assets/images/win"+num+".gif");
+            document.getElementById("imag").setAttribute("height","400px");
+            document.getElementById("imag").setAttribute("width","200px");
+            document.getElementById("content").style.display="none";
+            document.getElementById("images").style.display="block";
+            setTimeout(function(){
+            document.getElementById("content").style.display="block";
+            document.getElementById("images").style.display="none";
             
-                
-                var num = Math.floor(Math.random()*5);
-                document.getElementById("imag").setAttribute("src","assets/images/win"+num+".gif");
-                document.getElementById("imag").setAttribute("height","400px");
-                document.getElementById("imag").setAttribute("width","200px");
-            
-            
+            },2000);
             return true;
         }
         return false;
-    }
+        
+    },
+
+    
+
 
 };
 
