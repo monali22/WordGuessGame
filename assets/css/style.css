@@ -1,0 +1,26 @@
+#wrapper {
+    height: 400px;
+    width: 1000px;
+    background-color: bisque;
+    margin: 10% 0% 0% 10%;
+    border-style: solid;
+    border: 2%;
+    border-color: red;
+    /* text-align: center */
+    font-family: cursive
+}
+
+#content {
+   padding-left: 10%;
+   float: left;
+   margin-right: 2%;
+   
+}
+
+#images {
+    float: left;
+    height: 400px;
+    width: 200px;
+    background-color: red;
+    
+}
